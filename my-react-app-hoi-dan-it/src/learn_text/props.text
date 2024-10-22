@@ -1,0 +1,9 @@
+props dùng để truyền cha sang con = thuộc tính = truyền tài sản cha sang con
+{key : value}
+props là object
+các cách lấy dữ liệu : 
+1. là dùng thẳng data.name
+2. khai báo [name. age] = props hay sử dụng và có gợi ý
+
+- nếu hàm không có () thì là truyền data không thực thi + tham chiếu hàm đó thôi và có () là hàm
+- cách action hay sử dụng click và các nút nhấn cần phải có arrowFunction không nó sẽ thực thi luôn.
