@@ -17,8 +17,8 @@
     display: flex;
     gap: 15px;
     justify-content: center;
-    color: black;
-    background-color: black;
+    color: blue;
+    background-color: wheat;
 }
 
 .todo-data {
@@ -44,7 +44,7 @@ button {
 }
 
 input {
-    color: black;
+    color: blue;
     background-color: white;
     border-radius: 4px;
 }

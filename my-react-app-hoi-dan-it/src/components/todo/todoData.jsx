@@ -1,13 +1,15 @@
 
 const TodoData = (props) => {
-  console.log(props.name);
+
   // [nameID, ageID, dataID] = props.dataTest
-  const {name, data} = props
-  console.log(data.address);
+  // const {name, data, todoList} = props
+  console.log("check props", props);
+
     return (
         <div className='todo-data'>
-          <div>Learning React {name}</div>
-          <div>Learning React {data.address}</div>
+          <div>Learning React</div>
+          <div>Learning React </div>
+          <div>data {JSON.stringify(props.todoList)}</div>
         </div>
     );
 }

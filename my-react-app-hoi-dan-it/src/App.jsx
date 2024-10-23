@@ -9,32 +9,36 @@ import TodoNew from './components/todo/todoNew';
 
 function App() {
   // cú pháp hàm có 2 hàm
-  const todoName = (name) => {
-    alert(`to do ` + name)
-  }
-  var dataTest = {
-    'name' : 'eric',
-    "age" : 25,
-    'data' : {
-      'address' : 'ha noi',
-      'country' : 'viet nam'
+
+
+  const [todoList, setTodoList] = useState([{id: 1, name: "learning React "}, {id :2, name: "Watching Youtube"}])
+
+  const addNewTodo = (name)  => {
+    // alert('call me' + name )
+    const newTodo = {
+      id: 3,
+      name: name
     }
+    setTodoList([...todoList, newTodo])
   }
-  const hoidanit = 'eric'
-  const age = 25
-  const data = {
-    address : 'ha noi',
-    country : 'viet nam'
-  }
+
+  // const hoidanit = 'eric'
+  // const age = 25
+  // const data = {
+  //   address : 'ha noi',
+  //   country : 'viet nam'
+  // }
 
   return (
     <div className='todo-container'>
       <div className='todo-title'>Todo list</div>
       <TodoNew 
-      todoName={todoName}/>
+      addNewTodo={addNewTodo}/>
       <TodoData 
-      name={hoidanit}
-      data = {data}/>
+      // name={hoidanit}
+      // data = {data}
+      todoList = {todoList}
+      />
       <div className='logo'>
         <img src={reactLogo} alt="" />
       </div>
@@ -79,3 +83,16 @@ function App() {
 }
 
 export default App
+
+
+/*
+- giới thiệu về hooks- usestate
+- giới thiệu nhập text
+- nhập text thay đổi text
+- nhập vào input và thay đổi khi nhấn
+- truyền list dữ liệu data
+*/
+/*
+- giới thiệu cách thêm obj vào list
+- tự động thêm 1 cái id
+*/
