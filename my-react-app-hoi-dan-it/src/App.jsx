@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import {ArrowFunction} from './components/learn/MyComponent'
+import { ArrowFunction } from './components/learn/MyComponent'
 import MySecondComponent from './components/learn/MySecondComponent';
 import './components/todo/todo.css'
 import TodoData from './components/todo/todoData';
@@ -11,15 +11,27 @@ function App() {
   // cú pháp hàm có 2 hàm
 
 
-  const [todoList, setTodoList] = useState([{id: 1, name: "learning React "}, {id :2, name: "Watching Youtube"}])
+  const [todoList, setTodoList] = useState([])
 
-  const addNewTodo = (name)  => {
+  const addNewTodo = (name) => {
     // alert('call me' + name )
     const newTodo = {
-      id: 3,
+      id: guidGenerator(),
       name: name
     }
     setTodoList([...todoList, newTodo])
+  }
+  function guidGenerator() {
+    var S4 = function () {
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+  }
+
+  const deleteTodo = (id) => {
+    const newTodo = todoList.filter((item) => item.id !== id);
+    console.log("delete id = " + id);
+    setTodoList([...newTodo])
   }
 
   // const hoidanit = 'eric'
@@ -32,27 +44,42 @@ function App() {
   return (
     <div className='todo-container'>
       <div className='todo-title'>Todo list</div>
-      <TodoNew 
-      addNewTodo={addNewTodo}/>
-      <TodoData 
-      // name={hoidanit}
-      // data = {data}
-      todoList = {todoList}
+      <TodoNew
+        addNewTodo={addNewTodo} />
+      {
+        todoList.length === 0 ?
+          todoList.length === 0 && <div className='logo'>
+            <img src={reactLogo} alt="" />
+          </div> : <TodoData
+            // name={hoidanit}
+            // data = {data}
+            todoList={todoList}
+            deleteTodo = {deleteTodo}
+          />
+      }
+
+      {/*
+      c1:
+      <TodoData
+        // name={hoidanit}
+        // data = {data}
+        todoList={todoList}
       />
-      <div className='logo'>
+      {todoList.length === 0 && <div className='logo'>
         <img src={reactLogo} alt="" />
-      </div>
+      </div>} */}
+
     </div>
   );
   return (
-      <div className='todo-container'>
-        <div className='todo-title'>Todo list</div>
-        <div className='todo-new'><input type="text" /> <button>Add</button></div>
-        <div className='todo-data'>
-          <div>Learning React</div>
-          <div>Learning React</div>
-        </div>
+    <div className='todo-container'>
+      <div className='todo-title'>Todo list</div>
+      <div className='todo-new'><input type="text" /> <button>Add</button></div>
+      <div className='todo-data'>
+        <div>Learning React</div>
+        <div>Learning React</div>
       </div>
+    </div>
   )
   return (
     <>
@@ -65,8 +92,8 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <ArrowFunction/>
-      <MySecondComponent/>
+      <ArrowFunction />
+      <MySecondComponent />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
