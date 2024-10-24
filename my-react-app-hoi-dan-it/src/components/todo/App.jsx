@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '/src/assets/react.svg'
 import viteLogo from '/vite.svg'
-import { ArrowFunction } from './components/learn/MyComponent'
-import MySecondComponent from './components/learn/MySecondComponent';
-import './components/todo/todo.css'
-import TodoData from './components/todo/todoData';
-import TodoNew from './components/todo/todoNew';
-
+import { ArrowFunction } from '/src/components/learn/MyComponent'
+import MySecondComponent from '/src/components/learn/MySecondComponent';
+import '/src/components/todo/todo.css'
+import TodoNew from './todoNew';
+import TodoData from './todoData';
 function App() {
   // cú pháp hàm có 2 hàm
 
@@ -33,6 +32,8 @@ function App() {
     console.log("delete id = " + id);
     setTodoList([...newTodo])
   }
+
+  
 
   // const hoidanit = 'eric'
   // const age = 25
