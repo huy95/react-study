@@ -1,27 +1,24 @@
-
 const TodoData = (props) => {
+    const { todoList, deleteTodo } = props;
 
-  // const {name, data, todoList} = props
-  // console.log("check props", props);
-  const {todoList, deleteTodo} = props;
-  console.log(todoList);
-  const handleClick = (id) => {
-    console.log("!23123", id);
-    deleteTodo(id);
-  }
-  
+    const handleClick = (id) => {
+        deleteTodo(id)
+    }
 
     return (
         <div className='todo-data'>
-          {
-            todoList.map((item, index) => {
-              return (<div key={item.id} style={{display:"flex", justifyContent:"space-between", margin:'12px'}}>{item.name}
-              <button onClick={() => handleClick(item.id)}>Xóa</button></div>);
-            })
-          }
-          {/* <div>data {JSON.stringify(props.todoList)}</div> */}
+            {todoList.map((item, index) => {
+                return (
+                    <div className={`todo-item`} key={item.id}>
+                        <div> {item.name}</div>
+                        <button
+                            onClick={() => handleClick(item.id)}
+                            style={{ cursor: "pointer" }}>Delete</button>
+                    </div>
+                )
+            })}
         </div>
-    );
+    )
 }
 
-export default TodoData
+export default TodoData;

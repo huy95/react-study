@@ -1,31 +1,38 @@
 import { useState } from "react";
 
 const TodoNew = (props) => {
-    const {addNewTodo} = props;
-    // const valueInput = "Eric"
-    const [valueInput, setValueInput] = useState()
+
+    //useState hook (getter/setter)
+    // const valueInput = "eric";
+    const [valueInput, setValueInput] = useState("eric")
+
+    const { addNewTodo } = props;
+
+    // addNewTodo("eric") //fire
     const handleClick = () => {
-        console.log('click', valueInput)
         addNewTodo(valueInput);
-        setValueInput("")
+        setValueInput("");
     }
 
     const handleOnChange = (name) => {
-        console.log('handleOnChanges input', name)
         setValueInput(name)
     }
-    
     return (
-        <div className='todo-new'><input type="text" value={valueInput} onChange={(event) => handleOnChange(event.target.value)}/>
-         <button onClick={ () => handleClick()}>Add</button>
-         <div>My text input is = {valueInput}</div>
-         </div>
-    
+        <div className='todo-new'>
+            <input
+                type="text"
+                onChange={(event) => handleOnChange(event.target.value)}
+                value={valueInput}
+            />
+            <button
+                style={{ cursor: "pointer" }}
+                onClick={handleClick}
+            >Add</button>
+            <div>
+                My text input is = {valueInput}
+            </div>
+        </div>
     )
 }
 
-export default TodoNew
-
-// khi xử lí thằng cha sang con :
- 
-// dữ liệu cần sửa <= hàm thằng cha <= hàm thằng con
+export default TodoNew;

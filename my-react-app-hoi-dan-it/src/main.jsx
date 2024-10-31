@@ -1,12 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './components/todo/App'
-import './index.css'
-
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import LoginPage from './pages/login.jsx';
+import RegisterPage from './pages/register.jsx';
+import UserPage from './pages/user.jsx';
+
+import './styles/global.css';
 
 const router = createBrowserRouter([
   {
@@ -15,17 +18,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <div style={{color: "blue", backgroundColor: "red"}}>login app</div>,
+    element: <LoginPage />
   },
   {
     path: "/register",
-    element: <div>register app</div>,
+    element: <RegisterPage />
   },
+  {
+    path: "/users",
+    element: <UserPage />
+  },
+
 ]);
 
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </React.StrictMode>,
 )

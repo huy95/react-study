@@ -1,9 +1,29 @@
-import './style.css'
+//JSX : 1 parent
+//fragment
 
-const ArrowFunction = () => { // ki hieu = () => {}
-    console.log("arrow function")
-    return (<div className="child">eric và hỏi dân it update định nghĩa</div>);
+import './style.css';
+
+const MyComponent = () => {
+    // const hoidanit = "eric 1"; //string
+    // const hoidanit = 25; //number
+    // const hoidanit = true; //boolean
+    // const hoidanit = undefined;
+    // const hoidanit = null;
+    const hoidanit = [1, 2, 3]
+    // const hoidanit = {
+    //     name: "hoidanit",
+    //     age: 25
+    // }
+
+    return (
+        <>
+            <div> {JSON.stringify(hoidanit)} & hoidanit update</div>
+            <div>{console.log("ERIC")}</div>
+            <div className="child"
+                style={{ borderRadius: "10px" }}
+            >child</div>
+        </>
+    );
 }
 
-
-export {ArrowFunction}; // xuất ra nhiều biến đa phần 
+export default MyComponent;
