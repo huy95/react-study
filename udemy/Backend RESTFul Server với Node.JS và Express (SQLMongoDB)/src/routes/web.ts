@@ -6,8 +6,8 @@ const webRoutes = (app: Express) => {
     router.get("/", (req, res) => {
         res.render('home.ejs');
     })
-    router.get("/1", (req, res) => {
-        res.send('Hello, world!');
+    router.get("/create-user", (req, res) => {
+        res.render('create-user.ejs');
     })
     router.get("/12", (req, res) => {
         res.send('Hello, world!');

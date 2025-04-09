@@ -8,6 +8,8 @@ app.set('views', __dirname + '/views');
 
 webRoutes(app)
 
+app.use(express.static('static'));
+
 app.listen(process.env.PORT, () => {
     console.log(process.env.PORT)
 })
